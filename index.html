@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Diabetes Prediction</title>
+<link rel="stylesheet" href="/static/styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1>Diabetes Prediction</h1>
+    <form method="POST" action="/predict">
+        <label>Age:</label><br>
+        <input type="number" name="age" step="0.1" required><br><br>
+
+        <label>BMI:</label><br>
+        <input type="number" name="bmi" step="0.1" required><br><br>
+
+        <label>HbA1c Level:</label><br>
+        <input type="number" name="hba1c_level" step="0.1" required><br><br>
+
+        <label>Blood Glucose Level:</label><br>
+        <input type="number" name="blood_glucose_level" step="0.1" required><br><br>
+
+        <label>Gender:</label><br>
+        <select name="gender" required>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select><br><br>
+
+        <label>Smoking History:</label><br>
+        <select name="smoking_history" required>
+            <option value="never">Never</option>
+            <option value="former">Former</option>
+            <option value="current">Current</option>
+        </select><br><br>
+
+        <label>Hypertension:</label><br>
+        <input type="radio" name="hypertension" value="1" required> Yes
+        <input type="radio" name="hypertension" value="0" required> No<br><br>
+
+        <label>Heart Disease:</label><br>
+        <input type="radio" name="heart_disease" value="1" required> Yes
+        <input type="radio" name="heart_disease" value="0" required> No<br><br>
+
+        <button type="submit">Predict</button>
+    </form>
+    {% if result %}
+        <h2>Result: {{ result }}</h2>
+    {% endif %}
+</body>
+</html>
